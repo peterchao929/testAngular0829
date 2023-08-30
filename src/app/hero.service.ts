@@ -31,7 +31,7 @@ export class HeroService {
     //this.messageService.add('英雄Service：配對英雄中');
     //return heroes;
 
-    // 連接Web API方式
+    // 連接Web API方式 進度到這
     return this.http.get<Hero[]>(this.heroesUrl).pipe(catchError(this.handleError<Hero[]>('getHeroes', [])));
 
   }
