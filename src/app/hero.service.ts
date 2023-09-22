@@ -61,7 +61,7 @@ export class HeroService {
   // 更新對應ID英雄資料 put
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap(_ => this.log(`ID${hero.id}更新Hero資料`)),
+      tap((_) => this.log(`ID${hero.id}更新Hero資料`)),
       catchError(this.handleError<any>('updateHero'))
     );
   }
@@ -94,7 +94,7 @@ export class HeroService {
 
     // 搜尋欄位有資料則進行搜尋
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
-      tap(x =>
+      tap((x) =>
         x.length
           ? this.log(`找到 "${term}" 的資料了`)
           : this.log(`英雄清單中沒有 "${term}" 的資料`)

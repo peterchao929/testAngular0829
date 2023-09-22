@@ -16,10 +16,10 @@ export class DashboardComponent implements OnInit {
     this.getHeroes();
   }
 
-  // 此函式擷取第1~5名英雄
+  // 此函式擷取第1~3名英雄
   getHeroes(): void {
     this.heroService
       .getHeroes()
-      .subscribe((heroes) => (this.heroes = heroes.slice(0, 5)));
+      .subscribe((heroes) => (this.heroes = heroes.slice(0, 3)));
   }
 }
