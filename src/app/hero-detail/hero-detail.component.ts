@@ -27,10 +27,17 @@ export class HeroDetailComponent {
     this.getHero();
   }
 
-  // 取得單一英雄資料
+  // 呼叫Service 取得單一英雄資料
   getHero(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.heroService.getHero(id).subscribe(hero => this.hero = hero);
+  }
+
+  // 呼叫Service 將變動的內容存進資料庫
+  save(): void {
+    if (this.hero){
+      this.heroService.updateHero(this.hero).subscribe(()=>this.goBack);
+    }
   }
 
   // 返回上一頁
