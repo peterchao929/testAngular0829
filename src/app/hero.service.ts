@@ -85,7 +85,7 @@ export class HeroService {
     );
   }
 
-  // 搜尋英雄資料
+  // 搜尋英雄資料 search
   searchHeroes(term: string): Observable<Hero[]> {
     // 如果無搜尋資料，則回傳空的陣列
     if (!term.trim()) {
