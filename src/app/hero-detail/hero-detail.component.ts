@@ -9,9 +9,8 @@ import { HeroService } from '../hero.service';
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css']
+  styleUrls: ['./hero-detail.component.css'],
 })
-
 export class HeroDetailComponent {
   hero: Hero | undefined;
 
@@ -19,7 +18,7 @@ export class HeroDetailComponent {
     private route: ActivatedRoute,
     private heroService: HeroService,
     private location: Location
-  ){}
+  ) {}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -30,13 +29,13 @@ export class HeroDetailComponent {
   // 呼叫Service 取得單一英雄資料
   getHero(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.heroService.getHero(id).subscribe(hero => this.hero = hero);
+    this.heroService.getHero(id).subscribe((hero) => (this.hero = hero));
   }
 
   // 呼叫Service 將變動的內容存進資料庫
   save(): void {
-    if (this.hero){
-      this.heroService.updateHero(this.hero).subscribe(()=>this.goBack);
+    if (this.hero) {
+      this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
     }
   }
 
